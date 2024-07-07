@@ -1,30 +1,17 @@
-import inquirer from "inquirer";
-const answers = await inquirer.prompt([
+import inquirer from 'inquirer';
+const syestemGeneratedNo = Math.floor(Math.random() * 10);
+const answer = await inquirer.prompt([
     {
         type: "number",
-        name: "numone",
-        message: "kindly inter your first number",
-    },
-    { type: "number",
-        name: "numtwo",
-        message: "kindly inter your second number",
-    },
-    {
-        type: "list",
-        name: "opperator",
-        choices: ['addition', 'subtraction', 'multiplication', "division"],
-        message: "Sellect your opperator:"
+        name: "userguess",
+        message: "write your guess"
     }
 ]);
-if (answers.opperator === "addition") {
-    console.log(answers.numone + answers.numtwo);
+const { userGuess } = answer;
+if (userGuess === syestemGeneratedNo) {
+    console.log(userGuess, "userGuess", syestemGeneratedNo, 'SYs');
+    console.log("yeaa your answer is correct \n you win!");
 }
-if (answers.opperator === "subtraction") {
-    console.log(answers.numone - answers.numtwo);
-}
-if (answers.opperator === "multiplication") {
-    console.log(answers.numone * answers.numtwo);
-}
-if (answers.opperator === "division") {
-    console.log(answers.numone / answers.numtwo);
+else {
+    console.log("please try again better luck next time!");
 }
